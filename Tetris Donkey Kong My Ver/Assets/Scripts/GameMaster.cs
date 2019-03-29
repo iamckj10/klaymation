@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
@@ -15,9 +16,14 @@ public class GameMaster : MonoBehaviour
     // a lower spawn interval means more spawning
     private int enemySpawnInterval = 125;
 
+    private static int score;
+    public Text scoreText;
+
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
+        scoreText.text = "Score: " + score;
         index = UnityEngine.Random.Range(0, listOfBlocks.Length);
         Instantiate(player).name = "Player";
         Instantiate(listOfBlocks[index], new Vector3(player.transform.position.x, 13), new Quaternion()).name = "CurBlock";
@@ -37,6 +43,8 @@ public class GameMaster : MonoBehaviour
         {
             SpawnEnemy();
         }
+
+        scoreText.text = "Score: " + score;
     }
 
     public void SpawnEnemy()
@@ -69,5 +77,13 @@ public class GameMaster : MonoBehaviour
     {
         index = UnityEngine.Random.Range(0, listOfBlocks.Length);
         Instantiate(listOfBlocks[index], new Vector3(player.transform.position.x, 13), Quaternion.identity);
+    }
+
+    public static void IncreaseScore() {
+        score++;
+    }
+
+    public static void DecreaseScore() {
+        score--;
     }
 }

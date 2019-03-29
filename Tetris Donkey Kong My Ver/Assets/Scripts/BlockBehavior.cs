@@ -117,6 +117,7 @@ public class BlockBehavior : MonoBehaviour
             {
                 Debug.Log("kill!");
                 GridService.GetInstance().DestroyInGrid(below.gameObject);
+                GameMaster.IncreaseScore();
             }
         }
     }

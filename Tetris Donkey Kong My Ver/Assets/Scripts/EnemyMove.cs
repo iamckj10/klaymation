@@ -8,8 +8,8 @@ public class EnemyMove : MonoBehaviour
     private bool right; //does the enemy move right?
     private bool canMove; //is the enemy allowed to move right now?
     private double timer; //timer for when the enemy can move. equivalent to the fall speed
-    static int MOVE_RIGHT = 1;
-    static int MOVE_LEFT = 0;
+    static int MOVE_RIGHT = 0;
+    static int MOVE_LEFT = 1;
 
     // Start is called before the first frame update
     void Start()
